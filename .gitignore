@@ -1,2 +1,4 @@
 venv/
+.pkl_memoize_py3
+
 experiments/log_*
