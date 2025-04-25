@@ -5,8 +5,8 @@ ansor_run='ansor.py'
 codediffusion_run='our.py'
 
 model=squeezenet_v1.1
-num_measures_per_round=2
-num_trials=10
+num_measures_per_round=64
+num_trials=200
 i=0
 
 for target in llvm cuda; do

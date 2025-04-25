@@ -100,12 +100,13 @@ cd experiments
 bash script.sh
 ```
 
-This script executes Ansor and BayesianCodeDiffusion for the SqueezeNetV1.1 model on both CPU (llvm) and GPU (cuda).
-The target model can be specified using the `model` argument.
-Results can be compared in the generated subdirectories `log_ansor/squeezenet_v1.1` and `log_codediffusion*/squeezenet_v1.1`. 
+This script runs Ansor and BayesianCodeDiffusion for the `SqueezeNetV1.1` model on both CPU (llvm) and GPU (cuda). The target model can be specified using the `model` argument, and the target hardware can be selected using the `target` argument.
+
+Performance results are saved in the subdirectories `log_ansor/squeezenet_v1.1` and `log_codediffusion*/squeezenet_v1.1`, where they can be compared. In these directories, the generated `*.tsv` files allow for direct comparison of `compilation time (ElapsedTime)` and `program latency (EstimatedLatency)`.
 
 **Configurable Arguments**
-
+- `model`: Specifies the deep learning model to be compiled.
+- `target`: Specifies the target hardware for compilation (`llvm` for CPU, `cuda` for GPU).
 - `group_type`: Specifies the clustering method used in BayesianCodeDiffusion.
     - `group_type=sketch`: Uses sketch-based clustering.
     - `group_type=operator`: Uses operator-based clustering.
