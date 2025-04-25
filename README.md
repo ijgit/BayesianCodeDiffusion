@@ -1,14 +1,27 @@
 # Bayesian Code Diffusion Artifacts [OSDI 2025]
 
 
-- This repository contains an implementation of Bayesian Code Diffusion.
-- It is also based on Apache TVM v0.15.0 ([GitHub link](https://github.com/apache/tvm)).
+This artifact provides an implementation of Bayesian Code Diffusion.
+It is built upon Apache TVM v0.15.0 ([GitHub link](https://github.com/apache/tvm)).
+Detailed installation and execution instructions are included in the source code.
+
+The structure of the artifact is as follows:
+```
+├── config/                      # Configuration files for CMake, Python, and package versions
+├── experiments/                 # Scripts for running experiments
+├── tvm-ansor/                   # Baseline implementation of Ansor for comparison experiments
+└── tvm-bayesian_code_diffusion/ # Implementation of Bayesian Code Diffusion
+```
+
 
 ## Introduction
 
 ![Overview of the BayesianCodeDiffusion](./src/overview.jpg)
 
 Bayesian Code Diffusion optimize deep learning programs with reduced compilation time by clustering subgraphs and diffusing reusable optimization parameters.
+
+
+
 
 
 ## Installation
