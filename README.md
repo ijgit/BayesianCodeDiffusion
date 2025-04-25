@@ -3,7 +3,6 @@
 
 This artifact provides an implementation of Bayesian Code Diffusion.
 It is built upon Apache TVM v0.15.0 ([GitHub link](https://github.com/apache/tvm)).
-Detailed installation and execution instructions are included in the source code.
 
 The structure of the artifact is as follows:
 ```
