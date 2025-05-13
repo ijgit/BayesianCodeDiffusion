@@ -85,3 +85,4 @@ RUN python3 -m venv /workspace/venv && \
     /workspace/venv/bin/pip install -r ./config/requirements.txt
 
 CMD ["bash", "-c", "source /workspace/venv/bin/activate && nvcc -V && echo 'Build complete.'"]
+CMD ["/bin/bash"]
