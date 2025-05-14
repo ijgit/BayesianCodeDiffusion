@@ -3,7 +3,6 @@
 
 This artifact provides an implementation of Bayesian Code Diffusion.
 It is built upon Apache TVM v0.15.0 ([GitHub link](https://github.com/apache/tvm)).
-Detailed installation and execution instructions are included in the source code.
 
 The structure of the artifact is as follows:
 ```
@@ -31,6 +30,7 @@ This code has been tested with the Docker image `nvidia/cuda:11.3.1-devel-ubuntu
 ### Prerequisites
 
 Execute the following commands to install the required packages. CMake version 3.18 or higher is required.
+> Note: If a version of CMake greater than 3.18 is not available via the default APT repository, you may need to install it using the Kitware APT repository.
 
 ```bash
 apt-get update
