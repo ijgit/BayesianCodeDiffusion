@@ -6,10 +6,16 @@ import numpy as np
 test_idx = 0
 target = 'cuda' # 'llvm' or 'cuda'
 model = 'squeezenet_v1.1'
+batch_size = 1
+if model == 'squeezenet_v1.1' or model == 'mxnet':
+    layout = "NCHW"
+else:
+    layout = "NHWC"
 
-a_path = f'log_ansor/{model}/{test_idx}/ansor-{model}-NCHW-B1-{target}-64.tsv'
-b_sketch = f'log_codediffusion-sketch/{model}/{test_idx}/our-{model}-NCHW-B1-{target}-64-sketch.tsv'
-b_op = f'log_codediffusion-operator/{model}/{test_idx}/our-{model}-NCHW-B1-{target}-64-operator.tsv'
+# set file paths
+a_path = f'log_ansor/{model}/{test_idx}/ansor-{model}-{layout}-B{batch_size}-{target}-64.tsv'
+b_sketch = f'log_codediffusion-sketch/{model}/{test_idx}/our-{model}-{layout}-B{batch_size}-{target}-64-sketch.tsv'
+b_op = f'log_codediffusion-operator/{model}/{test_idx}/our-{model}-{layout}-B{batch_size}-{target}-64-operator.tsv'
 
 # read the log files
 a = pd.read_csv(a_path, sep='\t', header=None)
@@ -40,6 +46,7 @@ b_first_iter_latency = min(b_sketch_first_iter_latency, b_op_first_iter_latency)
 b_last_iter_latency = min(b_sketch_last_iter_latency, b_op_last_iter_latency)
 
 # print the results
+print(f'tested on {target} with {model}')
 print(f'compilation time {(a_min_elapsed_time / b_elapsed_time):.2f} times faster')
-print(f'first iter latency: {b_first_iter_latency/a_first_iter_latency} times faster')
-print(f'last iter latency: {b_last_iter_latency/a_last_iter_latency} times faster')
+print(f'first iter latency: {(a_first_iter_latency / b_first_iter_latency):.2f} times faster')
+print(f'last iter latency: {(a_last_iter_latency / b_last_iter_latency):.2f} times faster')
