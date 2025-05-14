@@ -173,7 +173,7 @@ def make_search_policies(
                         task,
                         cost_model,
                         # params=search_policy_params,
-                        params={'evolutionary_search_num_iters': 4},
+                        params={'evolutionary_search_num_iters': 2},
                         verbose=verbose,
                         init_search_callbacks=init_search_callbacks,
                         target_states=target_states[task_desc_to_group_name(task.desc)] if task_desc_to_group_name(task.desc) in target_states.keys() else None,
